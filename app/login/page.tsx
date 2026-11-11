@@ -1,21 +1,84 @@
 import { login, signup } from "./actions";
-export default function LoginPage(){
- return <main className="container" style={{maxWidth:460,marginTop:70}}>
-  <div className="card">
-   <h1 className="title">Apartment Funds</h1><p className="muted">Admin login</p>
-   <form className="form" action={login}>
-    <input className="input" name="email" type="email" placeholder="Email" required/>
-    <input className="input" name="password" type="password" placeholder="Password" minLength={6} required/>
-    <button className="btn" type="submit">Login</button>
-   </form>
-   <form action={signup} style={{marginTop:10}}><input type="hidden" name="email" value=""/><p className="muted">Create an admin account using the same form below.</p></form>
-   <details style={{marginTop:16}}><summary>Create account</summary>
-    <form className="form" action={signup} style={{marginTop:12}}>
-     <input className="input" name="email" type="email" placeholder="Email" required/>
-     <input className="input" name="password" type="password" placeholder="Password" minLength={6} required/>
-     <button className="btn secondary" type="submit">Sign up</button>
-    </form>
-   </details>
-  </div>
- </main>
+
+export default function LoginPage() {
+  return (
+    <div className="login-page">
+      <div className="card">
+        <div style={{ textAlign: "center", marginBottom: 24 }}>
+          <div
+            style={{
+              fontSize: 42,
+              marginBottom: 8,
+            }}
+          >
+            🏢
+          </div>
+
+          <h1 className="title">Apartment Funds</h1>
+
+          <p className="muted">
+            Manage your apartment maintenance, payments and funds
+          </p>
+        </div>
+
+        <form className="form" action={login}>
+          <input
+            className="input"
+            name="email"
+            type="email"
+            placeholder="Email"
+            autoComplete="email"
+            required
+          />
+
+          <input
+            className="input"
+            name="password"
+            type="password"
+            placeholder="Password"
+            autoComplete="current-password"
+            minLength={6}
+            required
+          />
+
+          <button className="btn" type="submit">
+            Login
+          </button>
+        </form>
+
+        <details>
+          <summary>Create admin account</summary>
+
+          <form className="form" action={signup}>
+            <input
+              className="input"
+              name="email"
+              type="email"
+              placeholder="Email"
+              autoComplete="email"
+              required
+            />
+
+            <input
+              className="input"
+              name="password"
+              type="password"
+              placeholder="Password"
+              autoComplete="new-password"
+              minLength={6}
+              required
+            />
+
+            <button className="btn secondary" type="submit">
+              Create Account
+            </button>
+          </form>
+        </details>
+
+        <div className="login-footer">
+          Apartment Management System
+        </div>
+      </div>
+    </div>
+  );
 }
